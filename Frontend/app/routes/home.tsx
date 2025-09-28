@@ -1,7 +1,7 @@
 import Navbar from "~/components/Navbar";
+import Login from "~/components/Login"
 import type { Route } from "./+types/home";
-import ResumeCard from "~/components/ResumeCard";
-import { resumes } from "constants/index";
+
 
 
 export function meta({}: Route.MetaArgs) {
@@ -13,23 +13,13 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className='bg-[url("/images/bg-main.svg")] bg-cover'>
+    <main>
       <Navbar />
-
-      <section className="main-section">
-        <div className="page-heading">
-          <h1>Track your Applications and Resume Ratings</h1>
-          <h2>Review your submissions and check Ai-powered feedback</h2>
-        </div>
+      <section className="grid gap-3 md:grid-cols-2">
+        <Login/>
+      {/* <h1 className="mb-4 mt-5 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Get back to growth with <span className="text-ctabold">the world's #1</span> CRM.</h1>         */}
       </section>
-
-      {resumes.length > 0 && (
-        <div className="resumes-section">
-          {resumes.map((resume) => (
-            <ResumeCard key={resume.id} resume={resume} />
-          ))}
-        </div>
-      )}
+      
     </main>
   );
 }
